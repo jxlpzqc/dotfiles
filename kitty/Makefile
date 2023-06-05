@@ -6,6 +6,7 @@ SRC_FILE := kitty.conf
 
 
 $(CONFIG_FILE): $(SRC_FILE)
+	[ -e $(CONFIG_DIR) ] || mkdir -p $(CONFIG_DIR)
 	cp $< $@
 
 install: $(CONFIG_FILE)

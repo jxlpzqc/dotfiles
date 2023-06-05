@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := install
 
 ~/.tmux.conf: tmux.conf
-	cp $(PWD)/tmux.conf ~/.tmux.conf
+	cp -f $< $@
 
 install: ~/.tmux.conf
 

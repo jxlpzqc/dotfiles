@@ -6,7 +6,6 @@ help:
 	@echo "    make uninstall - uninstall all dotfiles"
 	@echo "    make install [module] - install a module (e.g. make install nvim)"
 	@echo "    make [module] - install a module (e.g. make install nvim)"
-	@echo "    make uninstall [module] - uninstall all dotfiles (e.g. make uninstall nvim)"
 
 INSTALL_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
 
