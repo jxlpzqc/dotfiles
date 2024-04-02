@@ -1,24 +1,17 @@
 .DEFAULT_GOAL := install
 
-~/.config/nvim/init.lua: init.lua
-	[ -e ~/.config/nvim ] || mkdir -p ~/.config/nvim
-	cp -f $< $@
+~/.config/nvim:
+	git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 
-~/.local/share/lunarvim/lvim:
-	yes n | bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+~/.config/nvim/lua/user: user
+	cp -ar user ~/.config/nvim/lua
 
-~/.config/lvim/lua/mconfig:
-	[ ! -e ~/.config/lvim ] || rm -rf ~/.config/lvim  
-	[ -e ~/.config ] || mkdir -p ~/.config
-	git clone https://github.com/jxlpzqc/LunarVimConfig.git ~/.config/lvim
-
-install: ~/.local/share/lunarvim/lvim ~/.config/lvim/lua/mconfig ~/.config/nvim/init.lua
+install: ~/.config/nvim ~/.config/nvim/lua/user
 
 uninstall:
-	rm -f ~/.config/nvim/init.lua
-	rm -rf ~/.config/lvim/
-	~/.local/share/lunarvim/lvim/utils/installer/uninstall.sh || true
-	[ ! -e ~/.local/share/lunarvim ] || rm -rf ~/.local/share/lunarvim
-	rm -rf ~/.cache/lvim || true
+	rm -rf ~/.config/nvim \
+		~/.local/share/nvim \
+		~/.local/state/nvim \
+		~/.cache/nvim
 
 .PHONY: install uninstall
