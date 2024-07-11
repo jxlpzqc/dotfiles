@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := install
 
-install: ~/.config/nvim
+install: 
 	cp -rf ./nvim ~/.config
 	@echo "Installed nvim configuration, try running nvim to further install plugins"
 
