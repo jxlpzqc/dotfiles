@@ -4,5 +4,5 @@ set -e
 
 DIR="${BASH_SOURCE%/*}"
 
-cp -rf  ~/.config/nvim/lua/user/ "$DIR/"
+cp -rf  ~/.config/nvim "$DIR/"
 

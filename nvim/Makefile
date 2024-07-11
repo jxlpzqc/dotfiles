@@ -1,12 +1,8 @@
 .DEFAULT_GOAL := install
 
-~/.config/nvim:
-	git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-
-~/.config/nvim/lua/user: user
-	cp -ar user ~/.config/nvim/lua
-
-install: ~/.config/nvim ~/.config/nvim/lua/user
+install: ~/.config/nvim
+	cp -rf ./nvim ~/.config
+	@echo "Installed nvim configuration, try running nvim to further install plugins"
 
 uninstall:
 	rm -rf ~/.config/nvim \
