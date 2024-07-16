@@ -27,35 +27,4 @@ return {
   { import = "astrocommunity.git.blame-nvim" },
   { import = "astrocommunity.terminal-integration.vim-tmux-yank" },
   { import = "astrocommunity.debugging.nvim-bqf" },
-  -- overrides
-  { "goolord/alpha-nvim", enabled = false },
-  -- custom plugins
-  {
-    "github/copilot.vim",
-    event = "User AstroFile",
-    config = function()
-      vim.cmd [[
-        inoremap <silent><script><expr> <M-l> copilot#Accept("\<CR>")
-      ]]
-      vim.g.copilot_no_tab_map = true
-    end,
-  },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    lazy = false,
-    opts = {
-      mode = "topline",
-    },
-  },
-  {
-    "glepnir/lspsaga.nvim",
-    event = "User AstroFile",
-    config = function()
-      local saga = require "lspsaga"
-      saga.setup {
-        ui = { border = "rounded" },
-        lightbulb = { virtual_text = false },
-      }
-    end,
-  },
 }

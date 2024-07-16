@@ -15,7 +15,7 @@ return {
       cmp = true, -- enable completion at start
       diagnostics_mode = 2, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
       highlighturl = true, -- highlight URLs at start
-      notifications = false, -- enable notifications at start
+      notifications = true, -- enable notifications at start
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
@@ -31,8 +31,8 @@ return {
         cmdheight = 1,
         signcolumn = "yes", -- sets vim.opt.signcolumn to auto
         wrap = true, -- sets vim.opt.wrap
+        virtualedit = "", -- disable virtualedit
         tabstop = 4,
-        virtualedit = "",
         shiftwidth = 4,
         expandtab = true,
         background = "light"
@@ -76,10 +76,10 @@ return {
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
         ["<S-h>"] = ":bprevious<CR>",
         ["<S-l>"] = ":bnext<CR>",
-        ["<leader>o"] = { ":AerialToggle<CR>", desc = "Toggle outline" },
+        ["<Leader>o"] = { ":AerialToggle<CR>", desc = "Toggle outline" },
         ["[q"] = { ":cprevious<CR>", desc = "Previous quickfix" },
         ["]q"] = { ":cnext<CR>", desc = "Next quickfix" },
-        ["<leader>dl"] = {
+        ["<Leader>dl"] = {
           function()
             require("dap.ext.vscode").load_launchjs(nil, {
               cppdbg = { "c", "cpp", "rust" },
@@ -93,7 +93,7 @@ return {
         ["[e"] = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", silent = true },
         ["]e"] = { "<cmd>Lspsaga diagnostic_jump_next<CR>", silent = true },
         ["<M-1>"] = { "<cmd>ToggleTerm direction=horizontal<CR>", silent = true },
-        ["<leader>h"] = { "<cmd>noh<CR>", silent = true, desc = "Close hls" },
+        ["<Leader>h"] = { "<cmd>noh<CR>", silent = true, desc = "Close hls" },
 
       },
       t = {

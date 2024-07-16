@@ -17,12 +17,10 @@ vim.filetype.add {
   },
 }
 
-
-
 local notify = require("notify").notify
 ---@diagnostic disable-next-line: duplicate-set-field
 require("notify").notify = function(msg, ...)
   if msg:match "warning: multiple different client offset_encodings" then return end
   notify(msg, ...)
 end
-vim.o.background = "light"
+

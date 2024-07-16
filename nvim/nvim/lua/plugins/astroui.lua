@@ -9,6 +9,12 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- colorscheme = "vscode",
-    colorscheme = "gruvbox"
+    colorscheme = "gruvbox",
+    highlights = {
+      init = {
+        NeoTreeTabInactive = { link = "StatusLine" },
+        NeoTreeTabSeparatorInactive = { link = "StatusLine" },
+      }
+    }
   },
 }
