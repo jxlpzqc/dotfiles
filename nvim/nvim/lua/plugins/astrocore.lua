@@ -74,8 +74,8 @@ return {
         ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-        ["<S-h>"] = ":bprevious<CR>",
-        ["<S-l>"] = ":bnext<CR>",
+        ["<S-h>"] = function() require("astrocore.buffer").nav(-vim.v.count1) end,
+        ["<S-l>"] = function() require("astrocore.buffer").nav(vim.v.count1) end,
         ["<Leader>o"] = { ":AerialToggle<CR>", desc = "Toggle outline" },
         ["[q"] = { ":cprevious<CR>", desc = "Previous quickfix" },
         ["]q"] = { ":cnext<CR>", desc = "Next quickfix" },
