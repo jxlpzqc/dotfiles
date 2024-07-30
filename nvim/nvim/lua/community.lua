@@ -12,7 +12,6 @@ return {
   { import = "astrocommunity.motion.hop-nvim" },
   -- { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
-  { import = "astrocommunity.project.nvim-spectre" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.pack.cpp" },
@@ -25,6 +24,16 @@ return {
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.git.blame-nvim" },
-  { import = "astrocommunity.terminal-integration.vim-tmux-yank" },
   { import = "astrocommunity.debugging.nvim-bqf" },
+  { import = "astrocommunity.search.nvim-spectre" },
+  -- reconfigure astrocommunity.search.nvim-spectre
+  {
+    "nvim-pack/nvim-spectre",
+    opts = function(_, opts)
+      if not opts.mapping then return end
+      opts.mapping["resume_last_search"] = nil
+      opts.mapping["replace_cmd"] = { map = "<C-c>" }
+      opts.mapping["change_view_mode"] = { map = "<C-v>" }
+    end
+  }
 }

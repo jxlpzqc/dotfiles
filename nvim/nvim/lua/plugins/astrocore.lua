@@ -11,11 +11,11 @@ return {
     -- Configure core features of AstroNvim
     features = {
       large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
-      autopairs = true, -- enable autopairs at start
-      cmp = true, -- enable completion at start
-      diagnostics_mode = 2, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
-      highlighturl = true, -- highlight URLs at start
-      notifications = true, -- enable notifications at start
+      autopairs = true,                                 -- enable autopairs at start
+      cmp = true,                                       -- enable completion at start
+      diagnostics_mode = 2,                             -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
+      highlighturl = true,                              -- highlight URLs at start
+      notifications = true,                             -- enable notifications at start
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
@@ -24,14 +24,14 @@ return {
     },
     -- vim options can be configured here
     options = {
-      opt = { -- vim.opt.<key>
+      opt = {                  -- vim.opt.<key>
         relativenumber = true, -- sets vim.opt.relativenumber
-        number = true, -- sets vim.opt.number
-        spell = false, -- sets vim.opt.spell
+        number = true,         -- sets vim.opt.number
+        spell = false,         -- sets vim.opt.spell
         cmdheight = 1,
-        signcolumn = "yes", -- sets vim.opt.signcolumn to auto
-        wrap = true, -- sets vim.opt.wrap
-        virtualedit = "", -- disable virtualedit
+        signcolumn = "yes",    -- sets vim.opt.signcolumn to auto
+        wrap = true,           -- sets vim.opt.wrap
+        virtualedit = "",      -- disable virtualedit
         tabstop = 4,
         shiftwidth = 4,
         expandtab = true,
@@ -94,6 +94,17 @@ return {
         ["]e"] = { "<cmd>Lspsaga diagnostic_jump_next<CR>", silent = true },
         ["<M-1>"] = { "<cmd>ToggleTerm direction=horizontal<CR>", silent = true },
         ["<Leader>h"] = { "<cmd>noh<CR>", silent = true, desc = "Close hls" },
+        ["yL"] = {
+          function()
+            local absfilename = vim.fn.expand("%:h")
+            local relativeToCwd = vim.fn.fnamemodify(absfilename, ":~:.")
+            local linenumber = relativeToCwd .. '/' .. vim.fn.expand("%:t") .. ':' .. vim.fn.line(".")
+            vim.fn.setreg("*", linenumber)
+            vim.notify("`" .. linenumber .. "` saved to clipboard.", vim.log.levels.INFO, { title = "Yank Line Number" })
+          end,
+          silent = true,
+          desc = "yank line number"
+        }
 
       },
       t = {
