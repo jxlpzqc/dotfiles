@@ -10,7 +10,7 @@ return {
   { import = "astrocommunity.motion.nvim-surround" },
   -- { import = "astrocommunity.motion.flash-nvim" },
   { import = "astrocommunity.motion.hop-nvim" },
-  -- { import = "astrocommunity.completion.copilot-lua" },
+  { import = "astrocommunity.completion.copilot-cmp" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.editing-support.neogen" },
@@ -35,5 +35,14 @@ return {
       opts.mapping["replace_cmd"] = { map = "<C-c>" }
       opts.mapping["change_view_mode"] = { map = "<C-v>" }
     end
+  },
+  { import = "astrocommunity.game.leetcode-nvim" },
+  {
+    "kawre/leetcode.nvim",
+    opts = {
+      cn = {
+        enabled = true
+      }
+    }
   }
 }

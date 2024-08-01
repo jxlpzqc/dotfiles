@@ -11,16 +11,6 @@ return {
     }
   },
   {
-    "github/copilot.vim",
-    event = "User AstroFile",
-    config = function()
-      vim.cmd [[
-        inoremap <silent><script><expr> <M-l> copilot#Accept("\<CR>")
-      ]]
-      vim.g.copilot_no_tab_map = true
-    end,
-  },
-  {
     "nvim-treesitter/nvim-treesitter-context",
     lazy = false,
     opts = {
@@ -30,12 +20,20 @@ return {
   {
     "glepnir/lspsaga.nvim",
     event = "User AstroFile",
-    config = function()
-      local saga = require "lspsaga"
-      saga.setup {
-        ui = { border = "rounded" },
-        lightbulb = { virtual_text = false },
-      }
-    end,
+    opts = {
+      ui = { border = "rounded" },
+      lightbulb = { virtual_text = false },
+    }
   },
+  { -- override nvim-cmp plugin
+    "hrsh7th/nvim-cmp",
+    -- override the options table that is used in the `require("cmp").setup()` call
+    opts = function(_, opts)
+      -- opts parameter is the default options table
+      -- the function is lazy loaded so cmp is able to be required
+      local cmp = require("cmp")
+      -- modify the mapping part of the table
+      opts.mapping["<Tab>"] = cmp.mapping.confirm({ select = true })
+    end
+  }
 }
