@@ -42,6 +42,15 @@ return {
     opts = {
       cn = {
         enabled = true
+      },
+      injector = { ---@type table<lc.lang, lc.inject>
+        ["cpp"] = {
+          before = { "#include <bits/stdc++.h>", "using namespace std;" },
+          after = "int main() {}",
+        },
+        ["java"] = {
+          before = "import java.util.*;",
+        },
       }
     }
   }
