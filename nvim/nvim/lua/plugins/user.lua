@@ -7,8 +7,8 @@ return {
     "rcarriga/nvim-notify",
     event = "UIEnter",
     opts = {
-      stages = "static"
-    }
+      stages = "static",
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
@@ -23,7 +23,7 @@ return {
     opts = {
       ui = { border = "rounded" },
       lightbulb = { virtual_text = false },
-    }
+    },
   },
   { -- override nvim-cmp plugin
     "hrsh7th/nvim-cmp",
@@ -31,10 +31,10 @@ return {
     opts = function(_, opts)
       -- opts parameter is the default options table
       -- the function is lazy loaded so cmp is able to be required
-      local cmp = require("cmp")
+      local cmp = require "cmp"
       -- modify the mapping part of the table
-      opts.mapping["<Tab>"] = cmp.mapping.confirm({ select = true })
+      opts.mapping["<Tab>"] = cmp.mapping.confirm { select = true }
       opts.experimental = { ghost_text = true }
-    end
-  }
+    end,
+  },
 }
