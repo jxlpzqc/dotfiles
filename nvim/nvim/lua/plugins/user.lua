@@ -34,6 +34,7 @@ return {
       local cmp = require("cmp")
       -- modify the mapping part of the table
       opts.mapping["<Tab>"] = cmp.mapping.confirm({ select = true })
+      opts.experimental = { ghost_text = true }
     end
   }
 }
