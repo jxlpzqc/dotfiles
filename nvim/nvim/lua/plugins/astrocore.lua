@@ -51,14 +51,14 @@ return {
         -- second key is the lefthand side of the map
 
         -- navigate buffer tabs with `H` and `L`
-        -- L = {
-        --   function() require("astrocore.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-        --   desc = "Next buffer",
-        -- },
-        -- H = {
-        --   function() require("astrocore.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-        --   desc = "Previous buffer",
-        -- },
+        L = {
+          function() require("astrocore.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+          desc = "Next buffer",
+        },
+        H = {
+          function() require("astrocore.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+          desc = "Previous buffer",
+        },
 
         -- mappings seen under group name "Buffer"
         ["<Leader>bD"] = {
@@ -74,25 +74,9 @@ return {
         ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-        ["<S-h>"] = function() require("astrocore.buffer").nav(-vim.v.count1) end,
-        ["<S-l>"] = function() require("astrocore.buffer").nav(vim.v.count1) end,
         ["<Leader>o"] = { ":AerialToggle<CR>", desc = "Toggle outline" },
         ["[q"] = { ":cprevious<CR>", desc = "Previous quickfix" },
         ["]q"] = { ":cnext<CR>", desc = "Next quickfix" },
-        ["<Leader>dl"] = {
-          function()
-            require("dap.ext.vscode").load_launchjs(nil, {
-              cppdbg = { "c", "cpp", "rust" },
-            })
-          end,
-          desc = "Load launch json",
-        },
-        ["gh"] = { "<cmd>Lspsaga finder<CR>", silent = true, desc = "Open finder" },
-        ["gp"] = { "<cmd>Lspsaga peek_definition<CR>", silent = true, desc = "Peek definitions" },
-        ["ga"] = { "<cmd>Lspsaga code_action<CR>", silent = true, desc = "Show code actions" },
-        ["[e"] = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", silent = true },
-        ["]e"] = { "<cmd>Lspsaga diagnostic_jump_next<CR>", silent = true },
-        ["<M-1>"] = { "<cmd>ToggleTerm direction=horizontal<CR>", silent = true },
         ["<Leader>h"] = { "<cmd>noh<CR>", silent = true, desc = "Close hls" },
         ["yL"] = {
           function()

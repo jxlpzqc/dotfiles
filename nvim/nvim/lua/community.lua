@@ -18,6 +18,7 @@ return {
     event = "VeryLazy",
     opts = {},
   },
+  { import = "astrocommunity.lsp.lspsaga-nvim" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.pack.cpp" },

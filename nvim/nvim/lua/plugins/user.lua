@@ -17,14 +17,6 @@ return {
       mode = "topline",
     },
   },
-  {
-    "glepnir/lspsaga.nvim",
-    event = "User AstroFile",
-    opts = {
-      ui = { border = "rounded" },
-      lightbulb = { virtual_text = false },
-    },
-  },
   { -- override nvim-cmp plugin
     "hrsh7th/nvim-cmp",
     -- override the options table that is used in the `require("cmp").setup()` call
