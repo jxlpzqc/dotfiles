@@ -16,6 +16,10 @@ M.heuristics = {
       vim.bo[bufnr].tabstop = 8
       -- disable treesitter indent
       vim.bo[bufnr].indentexpr = ""
+      -- NOTE: This is a workaround for the indentexpr not working.
+      vim.defer_fn(function()
+        vim.bo[bufnr].indentexpr = ""
+      end, 1000)
     end,
   },
 }

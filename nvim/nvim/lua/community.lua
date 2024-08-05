@@ -11,7 +11,13 @@ return {
   -- { import = "astrocommunity.motion.flash-nvim" },
   { import = "astrocommunity.motion.hop-nvim" },
   { import = "astrocommunity.completion.copilot-cmp" },
-  { import = "astrocommunity.lsp.lsp-signature-nvim" },
+  -- NOTE: There is bug in community config.
+  -- { import = "astrocommunity.lsp.lsp-signature-nvim" },
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.pack.cpp" },
@@ -34,16 +40,16 @@ return {
       opts.mapping["resume_last_search"] = nil
       opts.mapping["replace_cmd"] = { map = "<C-c>" }
       opts.mapping["change_view_mode"] = { map = "<C-v>" }
-    end
+    end,
   },
   { import = "astrocommunity.game.leetcode-nvim" },
   {
     "kawre/leetcode.nvim",
     opts = {
       cn = {
-        enabled = true
+        enabled = true,
       },
-      injector = { ---@type table<lc.lang, lc.inject>
+      injector = {
         ["cpp"] = {
           before = { "#include <bits/stdc++.h>", "using namespace std;" },
           after = "int main() {}",
@@ -51,7 +57,7 @@ return {
         ["java"] = {
           before = "import java.util.*;",
         },
-      }
-    }
-  }
+      },
+    },
+  },
 }
