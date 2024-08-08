@@ -21,6 +21,7 @@ return {
   { import = "astrocommunity.lsp.lspsaga-nvim" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.editing-support.neogen" },
+  { import = "astrocommunity.editing-support.nvim-treesitter-context" },
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.bash" },
   -- { import = "astrocommunity.pack.go" },
