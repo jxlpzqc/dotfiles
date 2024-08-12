@@ -32,7 +32,7 @@ return {
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.git.blame-nvim" },
-  { import = "astrocommunity.debugging.nvim-bqf" },
+  { import = "astrocommunity.quickfix.nvim-bqf" },
   { import = "astrocommunity.search.nvim-spectre" },
   -- reconfigure astrocommunity.search.nvim-spectre
   {
