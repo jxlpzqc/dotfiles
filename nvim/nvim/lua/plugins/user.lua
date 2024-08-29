@@ -34,4 +34,18 @@ return {
       }
     end,
   },
+  {
+    "dhananjaylatkar/cscope_maps.nvim",
+    dependencies = {
+      "folke/which-key.nvim", -- optional [for whichkey hints]
+      "nvim-telescope/telescope.nvim", -- optional [for picker="telescope"]
+      "nvim-tree/nvim-web-devicons", -- optional [for devicons in telescope, fzf or mini.pick]
+    },
+    opts = {
+      prefix = "<Leader><Leader>c",
+      cscope = {
+        picker = "telescope",
+      },
+    },
+  },
 }
